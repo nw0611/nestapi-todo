@@ -17,6 +17,7 @@ model User {
   updatedAt DateTime @updatedAt
   email String @unique
   hashedPasword String
+  nickName String?
   tasks Task[] // 逆参照が必要
 }
 
