@@ -56,6 +56,8 @@ export class AuthService {
 
   }
 
+  // Authservice jwtを生成するときにpayloadとsecretKeyをjwtアルゴリズムにかけて生成している
+  // 逆にtokenとsecretKeyがあればpayloadを復元できる(jwt.strategyで行う)
   async generateJwt(userId: number, email: string): Promise<Jwt> {
     console.log(userId, email)
     const payload = {

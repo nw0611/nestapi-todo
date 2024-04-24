@@ -1,19 +1,24 @@
-import { Body, Controller, HttpCode, HttpStatus, Post, Req, Res } from '@nestjs/common';
+import { Body, Controller, HttpCode, HttpStatus, Post, Req, Res, Get } from '@nestjs/common';
+import { Response, Request } from 'express';
 import { AuthService } from './auth.service';
 import { AuthDto } from './dto/auth.dto';
-import { Msg } from './interfaces/auth.interface';
-import { Response, Request } from 'express';
+import { Csrf, Msg } from './interfaces/auth.interface';
 
 @Controller('auth')
 export class AuthController {
   constructor(
-    private readonly AuthService: AuthService
+    private readonly authService: AuthService
   ) {}
+
+  @Get('/csrf')
+  getCsrfToken(@Req() req: Request): Csrf {
+    return { csrfToken: req.csrfToken() };
+  }
 
   @Post('signup')
   // @Body: request bodyの中身を取得するため
   signUp(@Body() dto: AuthDto): Promise<Msg> {
-    return this.AuthService.signUp(dto)
+    return this.authService.signUp(dto)
   }
 
   @HttpCode(HttpStatus.OK) // デコレータで200を指定
@@ -22,7 +27,7 @@ export class AuthController {
     @Body() dto: AuthDto,
     @Res({ passthrough: true }) res: Response, // cookieの設定とjsonのシリアライズ化の両方の機能をONにするため 参照：https://docs.nestjs.com/controllers#routing （worning）
   ): Promise<Msg> {
-    const jwt = await this.AuthService.login(dto);
+    const jwt = await this.authService.login(dto);
     res.cookie('access_token', jwt.accessToken, {
       httpOnly: true,
       secure: false, // TODO: true: 通信をhttps化する必要がある
