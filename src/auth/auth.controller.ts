@@ -11,7 +11,7 @@ export class AuthController {
   ) {}
 
   @Get('/csrf')
-  getCsrfToken(@Req() req: Request): Csrf {
+  getCsrfToken(@Req() req: Request): Csrf { // csrf token生成したものを返す
     return { csrfToken: req.csrfToken() };
   }
 
@@ -30,7 +30,7 @@ export class AuthController {
     const jwt = await this.authService.login(dto);
     res.cookie('access_token', jwt.accessToken, {
       httpOnly: true,
-      secure: false, // TODO: true: 通信をhttps化する必要がある
+      secure: true, // NOTE: 通信をcsrf-tokenでhttps化したらtrue
       sameSite: 'none',
       path: '/',
     })
@@ -48,7 +48,7 @@ export class AuthController {
     // 空で設定することでcookieをリセット
     res.cookie('access_token', '', {
       httpOnly: true,
-      secure: false, // TODO: true: 通信をhttps化する必要がある
+      secure: true, // NOTE: 通信をcsrf-tokenでhttps化したらtrue
       sameSite: 'none',
       path: '/',
     })
