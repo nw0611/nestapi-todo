@@ -14,7 +14,10 @@ async function bootstrap() {
   app.useGlobalPipes(new ValidationPipe({ whitelist: true })) // validationPipe: classvalidatorの機能を有効 / whitelist: dtoに含まれないfieldが送られてきた時に省いてくれる
   app.enableCors({
     credentials: true, // jwt tokenをcookieベースなので許可
-    origin: ['http://localhost:3000']  // フロントエンドのドメインからのアクセス許可
+    origin: [
+      'http://localhost:3000',
+      'https://nextjs-todo-theta.vercel.app',
+    ]  // フロントエンドのドメインからのアクセス許可
   })
   app.use(cookieParser()) // cookie解析用ミドルウェアの実行
   app.use(csurf({
@@ -27,6 +30,6 @@ async function bootstrap() {
       return req.header('csrf-token')
     }
   }))
-  await app.listen(process.env.port || 3000);
+  await app.listen(process.env.port || 3005);
 }
 bootstrap();
