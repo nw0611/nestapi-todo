@@ -28,10 +28,10 @@
 - [Next.js](https://nextjs.org/)
 
 - frontend repository
-https://github.com/nw0611/nextjs-todo
+  - <a href="https://github.com/nw0611/nextjs-todo" target="_blank">https://github.com/nw0611/nextjs-todo</a>
 
 - published URL
-[https://nextjs-todo-theta.vercel.app](https://nextjs-todo-theta.vercel.app)
+  - [https://nextjs-todo-theta.vercel.app](https://nextjs-todo-theta.vercel.app)
 
 
 ## Installation
