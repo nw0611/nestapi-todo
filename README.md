@@ -24,8 +24,8 @@
 
 ## Description
 
-[Nest.js](https://github.com/nestjs/nest) framework TypeScript starter repository.
-[Next.js](https://nextjs.org/)
+- [Nest.js](https://github.com/nestjs/nest) framework TypeScript starter repository.
+- [Next.js](https://nextjs.org/)
 
 - frontend repository
 https://github.com/nw0611/nextjs-todo
