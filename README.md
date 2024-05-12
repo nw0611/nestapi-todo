@@ -31,7 +31,7 @@
 https://github.com/nw0611/nextjs-todo
 
 - published URL
-[nextjs-todo-theta.vercel.app](nextjs-todo-theta.vercel.app)
+[https://nextjs-todo-theta.vercel.app](https://nextjs-todo-theta.vercel.app)
 
 
 ## Installation
