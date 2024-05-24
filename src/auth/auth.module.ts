@@ -5,6 +5,7 @@ import { PrismaModule } from 'src/prisma/prisma.module';
 import { JwtModule } from '@nestjs/jwt';
 import { JwtStrategy } from './strategy/jwt.strategy';
 
+// importsで外部PrismaModuleを登録すれば、providersで指定する必要はない
 @Module({
   imports: [PrismaModule, JwtModule.register({})],
   controllers: [AuthController],

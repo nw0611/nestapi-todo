@@ -10,6 +10,7 @@ import { Jwt, Msg } from './interfaces/auth.interface';
 
 @Injectable()
 export class AuthService {
+  // consructorで使用したいmoduleを指定するとConstructor
   constructor(
     private readonly prisma: PrismaService,
     private readonly jwt: JwtService,
