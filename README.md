@@ -1,6 +1,6 @@
 ## Description
 
-- [Nest.js](https://github.com/nestjs/nest) framework TypeScript starter repository.
+- [Nest.js](https://github.com/nestjs/nest) Nest.js 学習用
 
 - frontend repository
   - <a href="https://github.com/nw0611/nextjs-todo" target="_blank">https://github.com/nw0611/nextjs-todo</a>
